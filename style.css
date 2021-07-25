@@ -1,0 +1,173 @@
+* {
+    font-family: "Nunito", sans-serif;
+}
+
+body {
+    /* background-color: rgb(235, 235, 235); */
+    padding: 60px;
+}
+
+:root {
+    --card-bg: #696969;
+    /* the default */
+}
+
+h1 {
+    font-family: "Kalam", cursive;
+    font-weight: 700;
+    color: rgb(235, 219, 0);
+    -webkit-text-stroke: 2px rgb(0, 33, 95);
+    text-align: center;
+    font-size: 48px;
+}
+
+#vue {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card:before {
+    position: absolute;
+    content: " ";
+    background: url(pokebal_white.png);
+    background-repeat: no-repeat;
+    background-position: 10% 25%;
+    background-size: 75%;
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    color: #fff;
+    background-color: rgb(177, 177, 177);
+    transition: 0.3s;
+    width: 350px;
+    min-height: 600px;
+    margin: 20px;
+    border-radius: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.card h2 span {
+    font-family: "Kalam", cursive;
+    font-size: 2rem;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+    /* transform: translate(5px, -5px); */
+    transform: rotate(-2deg);
+}
+
+.container {
+    height: 400px;
+    padding: 10px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sprite {
+    max-width: 250px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.info {
+    color: #000;
+    background-color: white;
+    border-radius: 30px;
+    min-height: 150px;
+    position: relative;
+    margin-top: -60px;
+    padding: 20px;
+    padding-top: 60px;
+}
+
+.types {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+.types>span {
+    background-color: darkgrey;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 10px;
+    margin: 0 5px;
+    font-size: 1.2rem;
+}
+
+input {
+    height: 30px;
+    width: 60px;
+    border-radius: 10px;
+    border: 0;
+    padding: 7px;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-left: 4px;
+}
+
+button {
+    background-color: rgb(2, 84, 138);
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    border-width: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+input:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+}
+
+.flavor {
+    margin: 20px auto;
+    color: rgb(56, 56, 56);
+    padding: 16px;
+}
+
+.moves {
+    padding: 20px;
+    line-height: 130%;
+}
+
+.moves span:nth-child(2) {
+    position: absolute;
+    right: 40px;
+}
+
+nav {
+    margin: 20px 0;
+}
+
+nav button {
+    margin: 0 5px;
+    font-size: 110%;
+}
+
+.copy {
+    color: grey;
+    margin-top: 10px;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
