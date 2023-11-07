@@ -1,60 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokédex</title>
-    <p>Updated using Visual Code</p>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script defer src="pokemon.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Nunito:wght@200;400&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Nunito:wght@200;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <div id="vue">
-        <header>
-            <h1>Pokédex</h1>
-            <nav class="bar">
-                <button @click="prev">Vorige</button>
-                <button @click="next">Volgende</button>
-                <input type="number" v-model="id" @input="getPokemon(id)">
-            </nav>
-        </header>
-        <main class="card">
-            <div class="container">
-                <h2>
-                    <span>{{ name }}</span>
-                    <span style="float: right;">#{{String(id).padStart(3, '0')}}</span>
-                </h2>
-                <img :src="spriteUrl" :alt="name" class="sprite">
-            </div>
-            <div class="info">
-                <div class="types">
-                    <span v-for="type in types">
-                        {{capitalize(type)}}
-                    </span>
-                </div>
-                <div class="flavor">
-                    {{flavor}}
-                </div>
-                <div class="moves">
-                    <div v-for="m in moves">
-                        <span>{{m.level}}</span>
-                        <span>{{capitalize(m.name)}}</span>
-                    </div>
-                </div>
-            </div>
-        </main>
-        <footer>
-            <a href="https://en.wikipedia.org/wiki/Pok%C3%A9mon">
-                Wikipedia</a>
-            <div class="copy">© Robbe Vorsselmans</div>
-        </footer>
-        <!-- <button @click="getPokemon(id)">Zoek Pokemon</button> -->
-    </div>
-</body>
+      <header>
+        <h1>Pokédex</h1>
+        <nav class="bar">
+          <button @click="prev">Vorige</button>
+          <button @click="next">Volgende</button>
+          <input type="number" v-model="id" @input="getPokemon(id)" />
+        </nav>
+      </header>
+      <main class="card" :style="'background-color:' + typeColor">
+        <div class="container">
+          <h2>
+            <span>{{ name }}</span>
+            <span style="float: right">#{{String(id).padStart(3, '0')}}</span>
+          </h2>
+          <img :src="spriteUrl" :alt="name" class="sprite" />
+        </div>
+        <div class="info">
+          <div class="types">
+            <span
+              v-for="type in types"
+              :style="'background-color:' + getTypeColor(type)"
+            >
+              {{capitalize(type)}}
+            </span>
+          </div>
+          <div class="flavor">{{flavor}}</div>
 
+          <div class="evolutions" v-if="chain.length > 1 && id <=151">
+            <img v-for="cId in chain" :src="`./images/Head-${String(cId).padStart(3,'0')}.png`" class="head" :class="{bigHead : cId == id}"/>
+          </div>
+          <div class="moves">
+            <div v-for="m in moves">
+              <span>{{m.level}}</span>
+              <span>{{capitalize(m.name)}}</span>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <a href="https://en.wikipedia.org/wiki/Pok%C3%A9mon"> Wikipedia</a>
+        <div class="copy">© Robbe Vorsselmans</div>
+      </footer>
+    </div>
+  </body>
 </html>

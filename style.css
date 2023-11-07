@@ -107,6 +107,22 @@ h1 {
     font-size: 1.2rem;
 }
 
+.evolutions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.head {
+    width: 60px;
+    height: 60px;
+}
+.bigHead {
+    width: 100px;
+    height: 100px
+}
+
 input {
     height: 30px;
     width: 60px;
